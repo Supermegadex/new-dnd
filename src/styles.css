@@ -1,1 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background: #CFD8DC;
+}
+
+code {
+  background: #263238;
+  color: white;
+  border-radius: 2px;
+  padding: 0 2px;
+  font-weight: 700;
+}
+
+tr, td, table {
+  border: none;
+  margin: 0;
+}
+
+.stat-table-column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: stretch;
+}
+
+.stat-table {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: stretch;
+  border-radius: 5px;
+}
+
+.stat-text {
+  padding: 5px;
+  font-size: 1.25em;
+}
+
+.stat-text:nth-child(even) {
+  background: #B0BEC5;
+}
+
+.stat-text:nth-child(odd) {
+  background: #CFD8DC;
+}

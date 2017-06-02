@@ -1,0 +1,13 @@
+md-card {
+  max-width: 800px;
+  margin: 20px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: center;
+}
