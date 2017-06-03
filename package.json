@@ -2,6 +2,7 @@
   "name": "jamesdnd",
   "version": "0.1.0",
   "license": "MIT",
+  "author": "Daniel Noon",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

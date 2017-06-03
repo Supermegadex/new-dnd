@@ -12,6 +12,48 @@ md-card {
   }
 }
 
+@keyframes min-char {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(100% - 3em));
+  }
+}
+
+@keyframes max-char {
+  from {
+    transform: translateY(calc(100% - 3em));
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes min-button {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes max-button {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.char-card-min {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
 .card-container {
   display: flex;
   flex-direction: column;
@@ -60,4 +102,20 @@ md-card {
 .points-left {
   font-size: x-large;
   padding: 4px 8px 2px 8px;
+}
+
+.character-card-min {
+  animation: min-char 500ms ease-in-out forwards !important;
+}
+
+.character-card-max {
+  animation: max-char 500ms ease-in-out forwards !important;
+}
+
+.character-button-max {
+  animation: max-button 500ms ease-in-out forwards !important;
+}
+
+.character-button-min {
+  animation: min-button 500ms ease-in-out forwards !important;
 }
