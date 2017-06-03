@@ -1,5 +1,5 @@
 {
-  "name": "James's D&D",
+  "name": "jamesdnd",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -8,8 +8,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "serve": "node app"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {

@@ -3,6 +3,15 @@ md-card {
   margin: 20px;
 }
 
+@keyframes show-char {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 .card-container {
   display: flex;
   flex-direction: column;
@@ -10,4 +19,45 @@ md-card {
   justify-content: flex-start;
   align-content: stretch;
   align-items: center;
+}
+
+.char-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: flex-start;
+}
+
+.racial-character {
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+}
+
+.character-card {
+  max-width: 500px;
+  position: fixed;
+  bottom: 5px;
+  left: 10px;
+  z-index: 9999999;
+  animation: show-char 500ms ease-in-out;
+}
+
+.stat-modify {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.stats-card {
+  padding: 24px 0 0 0;
+}
+
+.points-left {
+  font-size: x-large;
+  padding: 4px 8px 2px 8px;
 }

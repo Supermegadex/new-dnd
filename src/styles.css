@@ -37,6 +37,7 @@ tr, td, table {
   align-content: center;
   align-items: stretch;
   border-radius: 5px;
+  padding-top: 15px;
 }
 
 .stat-text {
@@ -50,4 +51,8 @@ tr, td, table {
 
 .stat-text:nth-child(odd) {
   background: #CFD8DC;
+}
+
+md-icon {
+  font-family: 'Material Icons';
 }

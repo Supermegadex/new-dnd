@@ -5,9 +5,9 @@ export class Race {
       str: number,
       dex: number,
       int: number,
-      wis: number
+      wis: number,
+      luck: number
     },
-    public luck: number,
     public background: string,
     public racial: string,
     public img: string

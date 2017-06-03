@@ -57075,7 +57075,7 @@ var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Version */]
 /* unused harmony export MdTab */
 /* unused harmony export MdTabLabel */
 /* unused harmony export MdTabChangeEvent */
-/* unused harmony export MdTabGroup */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return MdTabGroup; });
 /* unused harmony export MdTabNavBar */
 /* unused harmony export MdTabLink */
 /* unused harmony export MdTabLinkRipple */

@@ -42,4 +42,106 @@
       </md-card>
     </div>
   </md-tab>
+  <md-tab label="Name">
+    <div class="card-container">
+      <md-card>
+        <md-card-header>
+          <md-card-title>Enter your name.</md-card-title>
+        </md-card-header>
+        <md-card-content>
+          <md-input-container>
+            <input mdInput [(ngModel)]="character.name" placeholder="Name">
+          </md-input-container>
+        </md-card-content>
+        <md-card-actions>
+          <button md-raised-button color="primary" (click)="chooseName()">CHOOSE NAME</button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="Stats">
+    <div class="card-container">
+      <md-card class="stats-card">
+        <md-card-header>
+          <md-card-title>Distribute your stat points</md-card-title>
+          <md-card-subtitle>
+            Points remaining: <code class="points-left">{{points}}</code>
+          </md-card-subtitle>
+        </md-card-header>
+        <md-card-content>
+          <div class="stat-table">
+            <div class="stat-name-column stat-table-column">
+              <span class="stat-name stat-text">Strength</span>
+              <span class="stat-name stat-text">Dexterity</span>
+              <span class="stat-name stat-text">Intelligence</span>
+              <span class="stat-name stat-text">Wisdom</span>
+              <span class="stat-name stat-text">Luck</span>
+            </div>
+            <div class="stat-value-column stat-table-column">
+              <span class="stat-value stat-text">{{getStat("str")}}</span>
+              <span class="stat-value stat-text">{{getStat("dex")}}</span>
+              <span class="stat-value stat-text">{{getStat("int")}}</span>
+              <span class="stat-value stat-text">{{getStat("wis")}}</span>
+              <span class="stat-value stat-text">{{getStat("luck")}}</span>
+            </div>
+            <div class="stat-modify-column stat-table-column">
+              <span class="stat-modify stat-text">
+                <span (click)="addPoint('str')"><md-icon>add</md-icon></span>
+                <span (click)="subtractPoint('str')"><md-icon>remove</md-icon></span>
+              </span>
+              <span class="stat-modify stat-text">
+                <span (click)="addPoint('dex')"><md-icon>add</md-icon></span>
+                <span (click)="subtractPoint('dex')"><md-icon>remove</md-icon></span>
+              </span>
+              <span class="stat-modify stat-text">
+                <span (click)="addPoint('int')"><md-icon>add</md-icon></span>
+                <span (click)="subtractPoint('int')"><md-icon>remove</md-icon></span>
+              </span>
+              <span class="stat-modify stat-text">
+                <span (click)="addPoint('wis')"><md-icon>add</md-icon></span>
+                <span (click)="subtractPoint('wis')"><md-icon>remove</md-icon></span>
+              </span>
+              <span class="stat-modify stat-text">
+                <span (click)="addPoint('luck')"><md-icon>add</md-icon></span>
+                <span (click)="subtractPoint('luck')"><md-icon>remove</md-icon></span>
+              </span>
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
 </md-tab-group>
+
+<md-card class="character-card mat-elevation-z20" *ngIf="showChar">
+  <md-card-header>
+    <img src="{{character.img}}" md-card-avatar>
+    <md-card-title>{{character.name || "Name"}}</md-card-title>
+    <md-card-subtitle>{{character.race}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <div class="char-content">
+      <div class="stat-table">
+        <div class="stat-name-column stat-table-column">
+          <span class="stat-name stat-text">Strength</span>
+          <span class="stat-name stat-text">Dexterity</span>
+          <span class="stat-name stat-text">Intelligence</span>
+          <span class="stat-name stat-text">Wisdom</span>
+          <span class="stat-name stat-text">Luck</span>
+          <span class="stat-name stat-text">Karma</span>
+        </div>
+        <div class="stat-value-column stat-table-column">
+          <span class="stat-value stat-text">{{getStat("str")}}</span>
+          <span class="stat-value stat-text">{{getStat("dex")}}</span>
+          <span class="stat-value stat-text">{{getStat("int")}}</span>
+          <span class="stat-value stat-text">{{getStat("wis")}}</span>
+          <span class="stat-value stat-text">{{getStat("luck")}}</span>
+          <span class="stat-value stat-text">{{character.karma}}</span>
+        </div>
+      </div>
+      <div class="racial-character">
+        <markdown [data]="character.racial"></markdown>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>
