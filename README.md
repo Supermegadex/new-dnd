@@ -1,28 +1,65 @@
-# Untitled
+# James's D&D Thing
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
+This project was started with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
 
-## Development server
+## What is this?
+This is an app I made to ease the creation and management of characters for the game.
+In the future, I am also planning on adding a dashboard for the GM to see and edit anyone's characters, as well as make organized games.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## What's available now?
+The app's in pre-alpha right now, but you can nearly make a character! Saving is still in the works, but it's getting there!
 
-## Code scaffolding
+Here are some cool features:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+### Character Creation
+- Choose from 11 different races.
+- Each race has perks and different starting stats.
+- Customize your character's stats with 6 bonus points.
 
-## Build
+### Persistent Rolls
+- The first time you launch the app, it will roll your karma and save it to prevent cheating.
+- The roll is reset when you complete a character.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Lots more coming soon!
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Tech Specs:
+### Character Object:
+```typescript
+{
+  name: string,
+  race: string,
+  stats: {
+    str: number,
+    dex: number,
+    int: number,
+    wis: number,
+    luck: number
+  },
+  mod: {
+    str: number,
+    dex: number,
+    int: number,
+    wis: number,
+    luck: number
+  },
+  racial: string,
+  karma: number,
+  // more coming later, like levels, weapon, etc.
+}
+```
+### Race Object:
+```typescript
+{
+  name: string,
+  stats: {
+    str: number,
+    dex: number,
+    int: number,
+    wis: number,
+    luck: number
+  }
+  karma: Function,
+  background: string,
+  racial: string
+}
+```

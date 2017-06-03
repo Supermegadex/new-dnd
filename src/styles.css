@@ -30,6 +30,7 @@ tr, td, table {
 }
 
 .stat-table {
+  font-family: 'Nova Mono', monospace;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
