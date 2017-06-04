@@ -1,5 +1,5 @@
 <md-toolbar color="accent">
-  <h1>Nonclassical D&D</h1>
+  <h1>D&D</h1>
 </md-toolbar>
 <md-tab-group>
   <md-tab label="Race">
@@ -86,24 +86,24 @@
             </div>
             <div class="stat-modify-column stat-table-column">
               <span class="stat-modify stat-text">
-                <span (click)="addPoint('str')"><md-icon>add</md-icon></span>
-                <span (click)="subtractPoint('str')"><md-icon>remove</md-icon></span>
+                <span (click)="addPoint('str')"><md-icon>&#xE145;</md-icon></span>
+                <span (click)="subtractPoint('str')"><md-icon>&#xE15B;</md-icon></span>
               </span>
               <span class="stat-modify stat-text">
-                <span (click)="addPoint('dex')"><md-icon>add</md-icon></span>
-                <span (click)="subtractPoint('dex')"><md-icon>remove</md-icon></span>
+                <span (click)="addPoint('dex')"><md-icon>&#xE145;</md-icon></span>
+                <span (click)="subtractPoint('dex')"><md-icon>&#xE15B;</md-icon></span>
               </span>
               <span class="stat-modify stat-text">
-                <span (click)="addPoint('int')"><md-icon>add</md-icon></span>
-                <span (click)="subtractPoint('int')"><md-icon>remove</md-icon></span>
+                <span (click)="addPoint('int')"><md-icon>&#xE145;</md-icon></span>
+                <span (click)="subtractPoint('int')"><md-icon>&#xE15B;</md-icon></span>
               </span>
               <span class="stat-modify stat-text">
-                <span (click)="addPoint('wis')"><md-icon>add</md-icon></span>
-                <span (click)="subtractPoint('wis')"><md-icon>remove</md-icon></span>
+                <span (click)="addPoint('wis')"><md-icon>&#xE145;</md-icon></span>
+                <span (click)="subtractPoint('wis')"><md-icon>&#xE15B;</md-icon></span>
               </span>
               <span class="stat-modify stat-text">
-                <span (click)="addPoint('luck')"><md-icon>add</md-icon></span>
-                <span (click)="subtractPoint('luck')"><md-icon>remove</md-icon></span>
+                <span (click)="addPoint('luck')"><md-icon>&#xE145;</md-icon></span>
+                <span (click)="subtractPoint('luck')"><md-icon>&#xE15B;</md-icon></span>
               </span>
             </div>
           </div>
@@ -114,7 +114,7 @@
 </md-tab-group>
 
 <md-card class="character-card mat-elevation-z20" *ngIf="showChar" [ngClass]="getMinMaxClass('card')">
-  <button md-icon-button class="char-card-min" (click)="toggleCardState()" [ngClass]="getMinMaxClass('button')"><md-icon>keyboard_arrow_down</md-icon></button>
+  <button md-icon-button class="char-card-min" (click)="toggleCardState()" [ngClass]="getMinMaxClass('button')"><md-icon>&#xE313;</md-icon></button>
   <md-card-header>
     <img src="{{character.img}}" md-card-avatar>
     <md-card-title>{{character.name || "Name"}}</md-card-title>

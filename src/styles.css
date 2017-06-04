@@ -7,6 +7,13 @@ body, html {
   background: #CFD8DC;
 }
 
+.mat-tab-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 999999999 !important;
+  background: #fff !important;
+}
+
 code {
   background: #263238;
   color: white;
