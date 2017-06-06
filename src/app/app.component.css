@@ -119,3 +119,12 @@ md-card {
 .character-button-min {
   animation: min-button 500ms ease-in-out forwards !important;
 }
+
+.description-container {
+  width: 100%;
+}
+
+.description-textarea {
+  width: 100%;
+  resize: vertical;
+}

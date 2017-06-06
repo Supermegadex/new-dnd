@@ -111,6 +111,27 @@
       </md-card>
     </div>
   </md-tab>
+  <md-tab label="Weapon">
+    <div class="card-container">
+      <md-card>
+        <md-card-header>
+          <md-card-title>Choose your weapon.</md-card-title>
+          <md-card-subtitle>This may seem like a petty step, but rest assured, your weapon choice is a huge deal.</md-card-subtitle>
+        </md-card-header>
+        <md-card-content>
+          <md-input-container>
+            <input mdInput [(ngModel)]="character.weapon" placeholder="Weapon">
+          </md-input-container>
+          <md-input-container class="description-container">
+            <textarea mdInput placeholder="Description" class="description-textarea"></textarea>
+          </md-input-container>
+        </md-card-content>
+        <md-card-actions>
+          <button md-raised-button color="primary" (click)="chooseName()">CHOOSE WEAPON</button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </md-tab>
 </md-tab-group>
 
 <md-card class="character-card mat-elevation-z20" *ngIf="showChar" [ngClass]="getMinMaxClass('card')">

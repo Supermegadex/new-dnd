@@ -46,7 +46,8 @@ export class AppComponent {
       },
       karma: 0,
       racial: "",
-      img: ""
+      img: "",
+      weaponDesc: ""
     };
 
     this.races = new Races().races;
@@ -113,6 +114,11 @@ export class AppComponent {
   }
   minimize() {
     this.minmax = 2;
+  }
+
+  chooseCol() {
+    const statsTab: any = document.querySelector(".mat-tab-label:nth-child(3)");
+    statsTab.click();
   }
 
   chooseName() {
