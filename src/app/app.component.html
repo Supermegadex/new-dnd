@@ -108,6 +108,9 @@
             </div>
           </div>
         </md-card-content>
+        <md-card-actions style="margin-top: -15px; margin-bottom: 10px; margin-left: 10px;">
+          <button md-raised-button color="primary" (click)="chooseStats()">CONTINUE</button>
+        </md-card-actions>
       </md-card>
     </div>
   </md-tab>
@@ -123,11 +126,28 @@
             <input mdInput [(ngModel)]="character.weapon" placeholder="Weapon">
           </md-input-container>
           <md-input-container class="description-container">
-            <textarea mdInput placeholder="Description" class="description-textarea"></textarea>
+            <textarea mdInput placeholder="Description" class="description-textarea" [(ngModel)]="character.weaponDesc"></textarea>
           </md-input-container>
         </md-card-content>
         <md-card-actions>
-          <button md-raised-button color="primary" (click)="chooseName()">CHOOSE WEAPON</button>
+          <button md-raised-button color="primary" (click)="chooseWeapon()">CHOOSE WEAPON</button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="Finish">
+    <div class="card-container">
+      <md-card>
+        <md-card-header>
+          <md-card-title>Enter a background for your character and anything else the GM should know.</md-card-title>
+        </md-card-header>
+        <md-card-content>
+          <md-input-container class="description-container">
+            <textarea mdInput placeholder="Background" class="description-textarea" [(ngModel)]="character.background"></textarea>
+          </md-input-container>
+        </md-card-content>
+        <md-card-actions>
+          <button md-raised-button color="primary" (click)="finishEdit()">ALL DONE!</button>
         </md-card-actions>
       </md-card>
     </div>
@@ -151,6 +171,7 @@
           <span class="stat-name stat-text">Wisdom</span>
           <span class="stat-name stat-text">Luck</span>
           <span class="stat-name stat-text">Karma</span>
+          <span class="stat-name stat-text copper-color">Copper</span>
         </div>
         <div class="stat-value-column stat-table-column">
           <span class="stat-value stat-text">{{getStat("str")}}</span>
@@ -159,10 +180,18 @@
           <span class="stat-value stat-text">{{getStat("wis")}}</span>
           <span class="stat-value stat-text">{{getStat("luck")}}</span>
           <span class="stat-value stat-text">{{character.karma}}</span>
+          <span class="stat-value stat-text copper-color">{{character.money.copper}}</span>
         </div>
       </div>
       <div class="racial-character">
         <markdown [data]="character.racial"></markdown>
+        <ul>
+          <li><strong>Weapon</strong>: {{character.weapon || "None"}}</li>
+        </ul>
+        <ul>
+          <li><markdown [data]="character.weaponDesc"></markdown></li>
+        </ul>
+        <markdown id="bg-text" [data]="character.background"></markdown>
       </div>
     </div>
   </md-card-content>

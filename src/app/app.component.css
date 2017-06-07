@@ -12,6 +12,15 @@ md-card {
   }
 }
 
+@keyframes hide-char {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(150%);
+  }
+}
+
 @keyframes min-char {
   from {
     transform: translateY(0);
@@ -127,4 +136,20 @@ md-card {
 .description-textarea {
   width: 100%;
   resize: vertical;
+}
+
+markdown {
+  display: block;
+}
+
+markdown > p {
+  padding: 0 20px;
+}
+
+.copper-color {
+  background: #b87333;
+}
+
+#bg-text, #bg-text > p, #bg-text > * {
+  padding-left: 25px;
 }

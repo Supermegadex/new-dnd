@@ -11,18 +11,17 @@ import { MdTabGroup } from "@angular/material";
 })
 export class AppComponent {
   character; showChar; races = Array<Race>(); points = 6; minmax = 0;
-  static getItemByProperty(query, property, arr) {
+  static getItemByProperty(query, property, arr, index?) {
     let outcome;
     //noinspection TsLint
     for (let i in arr) {
       if (arr[i][property] === query) {
-        outcome = arr[i];
+        outcome = index ? i : arr[i];
       }
     }
-    return outcome;
+    return outcome || null;
   }
-  constructor(public tabs: MdTabGroup) {
-    console.log(tabs);
+  constructor() {
     if (!localStorage.getItem("karmaRoll")) {
       localStorage.setItem("karmaRoll", String(Math.floor(Math.random() * 6)));
     }
@@ -47,7 +46,20 @@ export class AppComponent {
       karma: 0,
       racial: "",
       img: "",
-      weaponDesc: ""
+      weaponDesc: "",
+      background: "",
+      xp: 0,
+      lvl: 0,
+      profession: "",
+      xpToNextLvl: 100,
+      className: "",
+      giftedAbilities: "",
+      money: {
+        copper: 10,
+        silver: 0,
+        gold: 0,
+        bronze: 0
+      }
     };
 
     this.races = new Races().races;
@@ -70,6 +82,28 @@ export class AppComponent {
     if (this.points < 6 && this.character.mod[stat] > 0) {
       this.character.mod[stat]--;
       this.points++
+    }
+  }
+
+  saveCharacter() {
+    if (localStorage.getItem("characters")) {
+      const tmp: any = JSON.parse(localStorage.getItem("characters"));
+      const curChar = AppComponent.getItemByProperty(this.character.name, "name", tmp.characters, true);
+      if (curChar !== null) {
+        tmp.characters[curChar] = this.character;
+      }
+      else {
+        tmp.characters.push(this.character);
+      }
+      localStorage.setItem("characters", JSON.stringify(tmp));
+    }
+    else {
+      const tmp = {
+        characters: [
+          this.character
+        ]
+      };
+      localStorage.setItem("characters", JSON.stringify(tmp))
     }
   }
 
@@ -116,13 +150,30 @@ export class AppComponent {
     this.minmax = 2;
   }
 
-  chooseCol() {
+  finishEdit() {
+    console.log("here");
+    localStorage.setItem("karmaRoll", String(Math.floor(Math.random() * 6)));
+    const card: any = document.querySelector(".character-card");
+    card.style.animation = "hide-char 500ms ease-in-out forwards";
+    setTimeout(() => this.showChar = false, 500);
+  }
+
+  chooseStats() {
+    // wat
+    this.saveCharacter();
+    const weaponsTab: any = document.querySelector(".mat-tab-label:nth-child(4)");
+    weaponsTab.click();
+  }
+
+  chooseName() {
+    this.saveCharacter();
     const statsTab: any = document.querySelector(".mat-tab-label:nth-child(3)");
     statsTab.click();
   }
 
-  chooseName() {
-    const statsTab: any = document.querySelector(".mat-tab-label:nth-child(3)");
-    statsTab.click();
+  chooseWeapon() {
+    this.saveCharacter();
+    const weaponsTab: any = document.querySelector(".mat-tab-label:nth-child(5)");
+    weaponsTab.click();
   }
 }
