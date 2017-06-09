@@ -150,6 +150,6 @@ markdown > p {
   background: #b87333;
 }
 
-#bg-text, #bg-text > p, #bg-text > * {
+.bg-text, .bg-text > p, .bg-text > * {
   padding-left: 25px;
 }

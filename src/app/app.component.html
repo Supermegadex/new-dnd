@@ -152,9 +152,54 @@
       </md-card>
     </div>
   </md-tab>
+  <md-tab label="Characters">
+    <div class="card-container">
+      <md-card class="mat-elevation-z10" *ngFor="let char of characters">
+        <md-card-header>
+          <img src="{{char.img}}" md-card-avatar>
+          <md-card-title>{{char.name || "Name"}}</md-card-title>
+          <md-card-subtitle>{{char.race}}</md-card-subtitle>
+        </md-card-header>
+        <md-card-content>
+          <div class="char-content">
+            <div class="stat-table">
+              <div class="stat-name-column stat-table-column">
+                <span class="stat-name stat-text">Strength</span>
+                <span class="stat-name stat-text">Dexterity</span>
+                <span class="stat-name stat-text">Intelligence</span>
+                <span class="stat-name stat-text">Wisdom</span>
+                <span class="stat-name stat-text">Luck</span>
+                <span class="stat-name stat-text">Karma</span>
+                <span class="stat-name stat-text copper-color">Copper</span>
+              </div>
+              <div class="stat-value-column stat-table-column">
+                <span class="stat-value stat-text">{{getStat("str", char)}}</span>
+                <span class="stat-value stat-text">{{getStat("dex", char)}}</span>
+                <span class="stat-value stat-text">{{getStat("int", char)}}</span>
+                <span class="stat-value stat-text">{{getStat("wis", char)}}</span>
+                <span class="stat-value stat-text">{{getStat("luck", char)}}</span>
+                <span class="stat-value stat-text">{{char.karma}}</span>
+                <span class="stat-value stat-text copper-color">{{char.money.copper}}</span>
+              </div>
+            </div>
+            <div class="racial-character">
+              <markdown [data]="char.racial"></markdown>
+              <ul>
+                <li><strong>Weapon</strong>: {{char.weapon || "None"}}</li>
+              </ul>
+              <ul>
+                <li><markdown [data]="char.weaponDesc"></markdown></li>
+              </ul>
+              <markdown class="bg-text" [data]="char.background"></markdown>
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
 </md-tab-group>
 
-<md-card class="character-card mat-elevation-z20" *ngIf="showChar" [ngClass]="getMinMaxClass('card')">
+<md-card class="mat-elevation-z20 character-card" *ngIf="showChar" [ngClass]="getMinMaxClass('card')">
   <button md-icon-button class="char-card-min" (click)="toggleCardState()" [ngClass]="getMinMaxClass('button')"><md-icon>&#xE313;</md-icon></button>
   <md-card-header>
     <img src="{{character.img}}" md-card-avatar>
@@ -191,7 +236,7 @@
         <ul>
           <li><markdown [data]="character.weaponDesc"></markdown></li>
         </ul>
-        <markdown id="bg-text" [data]="character.background"></markdown>
+        <markdown class="bg-text" [data]="character.background"></markdown>
       </div>
     </div>
   </md-card-content>

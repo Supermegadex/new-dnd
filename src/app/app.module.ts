@@ -6,13 +6,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Material Components
 import {
   MdButtonModule, MdCardModule, MdCheckboxModule, MdInputModule, MdTabsModule,
-  MdToolbarModule
+  MdToolbarModule, MdGridListModule
 } from "@angular/material";
 
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
-import {MarkdownModule} from "angular2-markdown";
+import { MarkdownModule } from "angular2-markdown";
 
 @NgModule({
   declarations: [
@@ -28,6 +28,7 @@ import {MarkdownModule} from "angular2-markdown";
     MdCardModule,
     MdTabsModule,
     MdToolbarModule,
+    MdGridListModule,
     MarkdownModule.forRoot()
   ],
   providers: [],

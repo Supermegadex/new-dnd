@@ -10,7 +10,7 @@ import { MdTabGroup } from "@angular/material";
   providers: [MdTabGroup]
 })
 export class AppComponent {
-  character; showChar; races = Array<Race>(); points = 6; minmax = 0;
+  character; showChar; races = Array<Race>(); points = 6; minmax = 0; characters = [];
   static getItemByProperty(query, property, arr, index?) {
     let outcome;
     //noinspection TsLint
@@ -65,10 +65,19 @@ export class AppComponent {
     this.races = new Races().races;
 
     this.showChar = false;
+
+    this.loadCharacters()
   }
 
-  getStat(stat) {
-    return this.character.stats[stat] + this.character.mod[stat];
+  getStat(stat, char?) {
+    let total;
+    if (char) {
+      total = char.stats[stat] + char.mod[stat];
+    }
+    else {
+      total = this.character.stats[stat] + this.character.mod[stat];
+    }
+    return total;
   }
 
   addPoint(stat) {
@@ -105,6 +114,11 @@ export class AppComponent {
       };
       localStorage.setItem("characters", JSON.stringify(tmp))
     }
+    this.loadCharacters();
+  }
+
+  loadCharacters() {
+    this.characters = (JSON.parse(localStorage.getItem("characters")) || {characters: []}).characters;
   }
 
   pickRace(name) {
@@ -155,6 +169,7 @@ export class AppComponent {
     localStorage.setItem("karmaRoll", String(Math.floor(Math.random() * 6)));
     const card: any = document.querySelector(".character-card");
     card.style.animation = "hide-char 500ms ease-in-out forwards";
+    this.saveCharacter();
     setTimeout(() => this.showChar = false, 500);
   }
 
